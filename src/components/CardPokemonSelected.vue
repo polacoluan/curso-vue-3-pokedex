@@ -7,19 +7,12 @@ const pokemon = defineProps(["name", "xp", "height", "img", "loading"]);
     class="card cardPokemon"
     :class="loading ? '' : 'animate__animated animate__flipInY'"
   >
-    <img
-      v-if="pokemon.name"
-      :src="img"
-      class="card-img-top pt-2"
-      :alt="name"
-      height="250"
-    />
+    <img v-if="pokemon.name" :src="img" class="card-img-top pt-2" :alt="name" />
     <img
       v-else
       src="../assets/egg_pokemon.svg"
       class="card-img-top pt-2"
       :alt="name"
-      height="250"
     />
     <div class="card-body">
       <h5 class="card-title text-center">{{ pokemon.name || "???" }}</h5>
@@ -47,5 +40,21 @@ const pokemon = defineProps(["name", "xp", "height", "img", "loading"]);
     rgba(220, 194, 106, 0.8) 0%,
     rgba(244, 0, 0, 0.8) 100%
   );
+}
+
+.cardPokemon img {
+  height: 250px;
+}
+
+@media (max-width: 768px) {
+  .cardPokemon {
+    height: 30vh;
+    width: 40%;
+    margin: 0 auto 10px auto;
+  }
+
+  .cardPokemon img {
+    height: 100px;
+  }
 }
 </style>

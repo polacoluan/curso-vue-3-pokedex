@@ -31,8 +31,8 @@ const selectPokemon = async (pokemon) => {
   await fetch(pokemon.url)
     .then((res) => res.json())
     .then((res) => (pokemonSelected.value = res))
-    .catch(err => alert(err))
-    .finally(() => loading.value = false)
+    .catch((err) => alert(err))
+    .finally(() => (loading.value = false));
 };
 </script>
 
@@ -83,5 +83,11 @@ const selectPokemon = async (pokemon) => {
   max-height: 75vh;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .card-list {
+    max-height: 48vh;
+  }
 }
 </style>
